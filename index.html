@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
     <!DOCTYPE html>
     <html lang="zh-TW">
@@ -85,3 +86,138 @@
     </body>
     </html>
     
+=======
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全國承租展示系統</title>
+    <style>
+        body { background-color: #f4f7f6; font-family: "Microsoft JhengHei", Arial; font-size: 14px; margin: 0; padding: 15px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .item-card { background: white; border-radius: 12px; padding: 15px; margin-bottom: 12px; border-left: 6px solid #ccc; box-shadow: 0 2px 5px rgba(0,0,0,0.1); display: flex; justify-content: space-between; align-items: flex-start; }
+        .status-new { border-left-color: #007bff; background-color: #f0f7ff; }
+        .status-remove { border-left-color: #dc3545; background-color: #fff8f8; }
+        .info-area { flex: 1; padding-right: 10px; }
+        .item-title { font-weight: bold; font-size: 1.1rem; color: #222; display: block; margin-bottom: 5px; }
+        .sticky-header { position: sticky; top: 0; background: #f4f7f6; padding: 10px 0; z-index: 100; border-bottom: 1px solid #ddd; margin-bottom: 15px; }
+        .form-control { width: 100%; padding: 10px; margin-bottom: 8px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 16px; }
+        .badge { display: inline-block; padding: 3px 8px; color: white; border-radius: 4px; font-size: 12px; margin-bottom: 5px; }
+        .bg-primary { background-color: #007bff; }
+        .bg-danger { background-color: #dc3545; }
+        .bg-secondary { background-color: #6c757d; }
+        .img-area { flex: 0 0 100px; text-align: right; position: relative; padding-top: 5px; }
+        .item-img { width: 100px; height: 100px; object-fit: contain; border: 1px solid #eee; border-radius: 8px; display: none; background: white; }
+        .img-x { position: absolute; top: -5px; right: -5px; background: #dc3545; color: white; width: 20px; height: 20px; border-radius: 50%; text-align: center; line-height: 20px; font-weight: bold; font-size: 12px; border: 2px solid white; z-index: 5; }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="sticky-header">
+        <h2 style="text-align:center; margin:0 0 10px 0;">🏪 全國承租系統</h2>
+        <select id="f-store" class="form-control" onchange="loadStoreDetail()">
+            <option value="">--- 請選擇分店 (共 75 間) ---</option><option value="100">100 寶雅台中黎明店</option><option value="103">103 寶雅台中東勢店</option><option value="128">128 寶雅沙鹿光華店</option><option value="129">129 寶雅豐原向陽店</option><option value="136">136 寶雅台中河南店</option><option value="137">137 寶雅大甲育德店</option><option value="15">15 寶雅台中一中店</option><option value="158">158 寶雅台中北屯店</option><option value="159">159 寶雅文心山西店</option><option value="16">16 寶雅台中文心店</option><option value="169">169 寶雅大里國光店</option><option value="179">179 寶雅台中大里店</option><option value="186">186 寶雅逢甲福星店</option><option value="191">191 寶雅台中嶺東店</option><option value="200">200 寶雅台中烏日店</option><option value="202">202 寶雅台中神岡店</option><option value="207">207 寶雅台中太平店</option><option value="209">209 寶雅台中中清店</option><option value="210">210 寶雅台中清水店</option><option value="212">212 寶雅台中大肚店</option><option value="215">215 寶雅沙鹿鎮南店</option><option value="216">216 寶雅北屯東山店</option><option value="218">218 寶雅台中大魯閣店</option><option value="220">220 寶雅台中后里店</option><option value="230">230 寶雅台中公益店</option><option value="237">237 寶雅愛買復興店</option><option value="243">243 寶雅秀泰文心店</option><option value="244">244 寶雅麗寶樂園店</option><option value="248">248 寶雅豐原成功店</option><option value="255">255 寶雅台中福科店</option><option value="261">261 寶雅台中中正店</option><option value="262">262 寶雅太平樹孝店</option><option value="271">271 寶雅秀泰站前店</option><option value="312">312 寶雅台中金典店</option><option value="314">314 寶雅大甲蔣公店</option><option value="323">323 寶雅北屯舊社店</option><option value="341">341 寶雅台中向心店</option><option value="351">351 寶雅沙鹿英才店</option><option value="355">355 寶雅台中漢口二店</option><option value="356">356 寶雅台中漢口三店</option><option value="357">357 寶雅台中忠孝店</option><option value="358">358 寶雅太平環中一店</option><option value="36">36 寶雅台中大墩店</option><option value="361">361 寶雅台中自由店</option><option value="362">362 寶雅龍井新興店</option><option value="367">367 寶雅大雅中清二店</option><option value="373">373 寶雅台中河南二店</option><option value="374">374 寶雅沙鹿向上店</option><option value="391">391 寶雅愛買豐原店</option><option value="396">396 寶雅台中崇德店</option><option value="405">405 寶雅台中市政店</option><option value="41">41 寶雅豐原府前店</option><option value="411">411 寶雅台中大魯閣二店</option><option value="418">418 寶雅豐原中正店</option><option value="424">424 寶雅霧峰中正二店</option><option value="429">429 寶雅台中崇德二店</option><option value="432">432 寶雅台中中清二店</option><option value="440">440 寶雅潭子福潭店</option><option value="441">441 寶雅大里中興二店</option><option value="450">450 寶雅台中文心南店</option><option value="464">464 寶雅台中軍功店</option><option value="466">466 寶雅北屯東山二店</option><option value="47">47 寶雅台中學士店</option><option value="481">481 寶雅台中米平方店</option><option value="483">483 寶雅潭子中山店</option><option value="484">484 寶雅台中文心二店</option><option value="500">500 寶雅大甲經國店</option><option value="506">506 寶雅太平中興東店</option><option value="62">62 寶雅台中潭子店</option><option value="71">71 寶雅台中美村南店</option><option value="73">73 寶雅大雅中清店</option><option value="78">78 寶雅台中霧峰店</option><option value="89">89 寶雅台中精武東店</option><option value="94">94 寶雅大里成功店</option><option value="95">95 寶雅台中松竹店</option>
+        </select>
+        <div id="loading-hint" style="display:none; text-align:center; color:#007bff; font-weight:bold;">⏳ 讀取資料中...</div>
+        <div id="filter-group" style="display:none;">
+            <select id="f-dept" class="form-control" onchange="render()"></select>
+            <select id="f-item" class="form-control" onchange="render()"></select>
+            <input type="text" id="f-search" class="form-control" placeholder="快速搜尋..." onkeyup="render()">
+        </div>
+    </div>
+    <div id="card-container"></div>
+</div>
+
+<script>
+    var currentData = [];
+
+    function loadStoreDetail() {
+        var sid = document.getElementById('f-store').value;
+        if (!sid) {
+            document.getElementById('filter-group').style.display = 'none';
+            document.getElementById('card-container').innerHTML = '';
+            return;
+        }
+        
+        document.getElementById('loading-hint').style.display = 'block';
+        
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', './data/' + sid + '.json?v=' + new Date().getTime(), true);
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === 4 && xhr.status === 200) {
+                currentData = JSON.parse(xhr.responseText);
+                document.getElementById('loading-hint').style.display = 'none';
+                document.getElementById('filter-group').style.display = 'block';
+                
+                setupFilters();
+                render();
+            }
+        };
+        xhr.send();
+    }
+
+    function setupFilters() {
+        var depts = []; var items = [];
+        for (var i = 0; i < currentData.length; i++) {
+            var d = currentData[i];
+            if (d.部門 && depts.indexOf(d.部門) === -1) depts.push(d.部門);
+            if (d.項目 && items.indexOf(d.項目) === -1) items.push(d.項目);
+        }
+        depts.sort(); items.sort();
+
+        var dH = '<option value="">-- 全部部門 --</option>';
+        for (var j = 0; j < depts.length; j++) dH += '<option value="' + depts[j] + '">' + depts[j] + '</option>';
+        dH += '<option value="FN">⭐ 只看新增</option><option value="FR">❌ 只看移除</option>';
+        document.getElementById('f-dept').innerHTML = dH;
+
+        var iH = '<option value="">-- 所有項目 --</option>';
+        for (var k = 0; k < items.length; k++) iH += '<option value="' + items[k] + '">' + items[k] + '</option>';
+        document.getElementById('f-item').innerHTML = iH;
+    }
+
+    function render() {
+        var dVal = document.getElementById('f-dept').value;
+        var iVal = document.getElementById('f-item').value;
+        var sVal = document.getElementById('f-search').value.toLowerCase();
+        var html = '';
+
+        for (var i = 0; i < currentData.length; i++) {
+            var d = currentData[i];
+            var mDept = (dVal === "FN") ? (d.比對結果 === "新增") :
+                        (dVal === "FR") ? (d.比對結果 === "移除") :
+                        (dVal === "" || d.部門 === dVal);
+            var mItem = (iVal === "" || d.項目 === iVal);
+            var mSearch = ((d.承租項目 || "") + (d.廠商名稱 || "") + (d.廠編 || "")).toLowerCase().indexOf(sVal) !== -1;
+
+            if (mDept && mItem && mSearch) {
+                var isNew = (d.比對結果 === "新增");
+                var isRem = (d.比對結果 === "移除");
+                var css = isNew ? "status-new" : (isRem ? "status-remove" : "");
+                var bC = isNew ? "bg-primary" : (isRem ? "bg-danger" : "bg-secondary");
+                
+                html += '<div class="item-card ' + css + '">';
+                html += '  <div class="info-area">';
+                html += '    <span class="badge ' + bC + '">' + (d.比對結果 || "無") + '</span>';
+                html += '    <span class="item-title">' + (isNew ? "⭐ " : (isRem ? "🚫 " : "")) + d.承租項目 + '</span>';
+                html += '    <div style="color:#666;">' + d.部門 + ' | ' + d.項目 + '</div>';
+                html += '    <div>廠商: ' + d.廠商名稱 + ' (' + d.廠編 + ')</div>';
+                html += '    <div style="font-size:0.8rem; color:#999; margin-top:4px;">' + d.檔期 + '</div>';
+                html += '  </div>';
+
+                if (d.img_id) {
+                    html += '<div class="img-area">';
+                    if (isRem) html += '<div class="img-x">✕</div>';
+                    html += '  <img src="photos/' + d.img_id + '.jpg" class="item-img" onload="this.style.display=\'inline-block\'" onerror="this.style.display=\'none\'">';
+                    html += '</div>';
+                }
+                html += '</div>';
+            }
+        }
+        document.getElementById('card-container').innerHTML = html || '<p style="text-align:center;color:#999;">查無資料</p>';
+    }
+</script>
+</body>
+</html>
+>>>>>>> 85d688b6d82c63a0269e13c313eac73d80a6f86a
